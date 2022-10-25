@@ -1,0 +1,22 @@
+extends base.pug
+
+block append head
+    title Search
+    script(type='text/javascript').
+        window.onload = () => {
+            const keyword = decodeURI((new URL(window.location.href)).searchParams.get('keyword'));
+            document.getElementById('searchInput').value = ([undefined, 'null']).includes(keyword) ? '' : keyword;
+        };
+
+
+block append content
+    each post in posts
+        div.post
+            a(href='/posts/' + post.title) 
+                table.post
+                    tbody
+                        tr
+                            td#title
+                                h3 #{post.title.slice(11, -3)}
+                            td#date #{post.date}
+                p.preview= post.preview
