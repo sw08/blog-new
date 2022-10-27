@@ -1,137 +1,131 @@
-# CoDrone mini <br>
+## Why I wrote this? 
+I've just borrowed CoDrone mini from programming club in my school. Honestly, I'd forgotten this until today - but tomorrow(Sep 22th) I must return it. I remembered the teacher asking me to record a video and test it. But maybe the manual - included with the drone box - was too old or like that, anyway I found the module - used in the manual book - was not on pypi. I think the uploader had deleted it - as I found another module. In short, I'm writing this for someone experiencing the same as me. 
 
-## Why I wrote this? <br>
-I've just borrowed CoDrone mini from programming club in my school. Honestly, I'd forgotten this until today - but tomorrow(Sep 22th) I must return it.
-I remembered the teacher asking me to record a video and test it. But maybe the manual - included with the drone box - was too old or like that,
-anyway I found the module - used in the manual book - was not on pypi. I think the uploader had deleted it - as I found another module. In short, I'm writing this for someone experiencing the same as me. <br>
-
-## How to get the library <br>
+## How to get the library 
 First, go to [here](https://pypi.org/project/CoDrone-mini/#files) and download the whl file. And unzip it, so that you can see the whole code.
-Of course you can just use `pip install CoDrone-mini`, but there's no docs so it's gonna be quite hard to code.<br>
+Of course you can just use `pip install CoDrone-mini`, but there's no docs so it's gonna be quite hard to code.
 
-## Tutorial <br>
-While I was writing this, I found the official manual - used with the module I found.
-You can see it in [here](https://learn.robolink.com/course/codrone-mini-with-python/).
-The choice about whether or not you see this is yours :) <br>
+## Tutorial 
+While I was writing this, I found the official manual - used with the module I found. You can see it in [here](https://learn.robolink.com/course/codrone-mini-with-python/). The choice about whether or not you see is yours :) 
 
-## The basic code to get ready <br>
-> Import Code <br>
+## The basic code to get ready 
+> Import Code 
 
 ```
 import CoDrone_mini
 from CoDrone_mini import Direction, Sequence
 ```
-<br>
-> `CoDrone` <br>
 
-The basic class to connect and control CoDrone Mini. <br>
-> `CoDrone.pair(port_name=None)` <br>
+> `CoDrone` 
 
-Pair with the controller - connected to computer with cable. Automatically finds the port if you don't set. <br>
-> `CoDrone.isOpen()` <br>
+The basic class to connect and control CoDrone Mini. 
+> `CoDrone.pair(port_name=None)` 
 
-Check if the controller is connected and ready to control. <br>
-> `CoDrone.close()` <br>
+Pair with the controller - connected to computer with cable. Automatically finds the port if you don't set. 
+> `CoDrone.isOpen()` 
 
-Close connection with the controller. <br>
+Check if the controller is connected and ready to control. 
+> `CoDrone.close()` 
 
-## How to get data from CoDrone <br>
-> `CoDrone.get_altitude()` <br>
+Close connection with the controller. 
 
-Get the CoDrone's altitude with barometer in cm. The data is absolute. <br>
-> `CoDrone.get_height()` <br>
+## How to get data from CoDrone 
+> `CoDrone.get_altitude()` 
 
-Get the CoDrone's height with barometer in cm. The data is relative - how much CoDrone's far from the ground. <br>
-> `CoDrone.get_pressure()` <br>
+Get the CoDrone's altitude with barometer in cm. The data is absolute. 
+> `CoDrone.get_height()` 
 
-Get the air pressure in Pa - I've no idea why this exists LOL <br>
-> `CoDrone.get_drone_temp()` <br>
+Get the CoDrone's height with barometer in cm. The data is relative - how much CoDrone's far from the ground. 
+> `CoDrone.get_pressure()` 
 
-Get the temperature inside CoDrone - **not the around** - in Celsius. <br>
-> `CoDrone.get_battery_percentage()` <br>
+Get the air pressure in Pa - I've no idea why this exists LOL 
+> `CoDrone.get_drone_temp()` 
 
-Get the percentage of CoDrone's battery. When it's None, the controller probably hasn't gotten the data. <br>
-> `CoDrone.get_angle()` <br> 
+Get the temperature inside CoDrone - **not the around** - in Celsius. 
+> `CoDrone.get_battery_percentage()` 
 
-Get the string data of roll, pitch, yaw in degree. You can also access them with `angle.ROLL`, `angle.PITCH`, `angle.YAW`.<br>
-They range from -180 to 180 - left roll/yaw, backward pitch are negative degrees. <br>
-> `CoDrone.get_trim()` <br>
+Get the percentage of CoDrone's battery. When it's None, the controller probably hasn't gotten the data. 
+> `CoDrone.get_angle()`  
 
-Get the trim of CoDrone in list(maybe...?) <br>
+Get the string data of roll, pitch, yaw in degree. You can also access them with `angle.ROLL`, `angle.PITCH`, `angle.YAW`.
+They range from -180 to 180 - left roll/yaw, backward pitch are negative degrees. 
+> `CoDrone.get_trim()` 
 
-## How to control CoDrone <br>
-> `CoDrone.takeoff()` <br>
+Get the trim of CoDrone in list(maybe...?) 
 
-CoDrone takeoffs automatically. <br>
-> `CoDrone.land()` <br>
+## How to control CoDrone 
+> `CoDrone.takeoff()` 
 
-CoDrone lands automatically. <br>
-> `CoDrone.emergency_stop()` <br>
+CoDrone takeoffs automatically. 
+> `CoDrone.land()` 
 
-CoDrone stops all the motors. When you run this while flying, it will fall down, so you must be careful with this. <br>
-> `CoDrone.set_speed(speed)` <br>
+CoDrone lands automatically. 
+> `CoDrone.emergency_stop()` 
 
-Set CoDrone's speed. Default is 3 (among 1, 2, 3) when you initialize your CoDrone instance. <br>
-> `CoDrone.headless_on()` <br>
+CoDrone stops all the motors. When you run this while flying, it will fall down, so you must be careful with this. 
+> `CoDrone.set_speed(speed)` 
 
-Turn on headless mode. <br>
-> `CoDrone.headless_off()` <br>
+Set CoDrone's speed. Default is 3 (among 1, 2, 3) when you initialize your CoDrone instance. 
+> `CoDrone.headless_on()` 
 
-Turn off headless mode. <br>
-> `CoDrone.reset_sensor()` <br>
+Turn on headless mode. 
+> `CoDrone.headless_off()` 
 
-Reset all the sensors. <br>
-> `CoDrone.set_roll(power)` <br>
-> `CoDrone.set_pitch(power)` <br>
-> `CoDrone.set_yaw(power)` <br>
-> `CoDrone.set_throttle(power)` <br>
+Turn off headless mode. 
+> `CoDrone.reset_sensor()` 
 
-Set roll, pitch, yaw, throttle's power. The value can range from -100(%) to 100(%). <br>
-> `CoDrone.move(*args)` <br>
+Reset all the sensors. 
+> `CoDrone.set_roll(power)` 
+> `CoDrone.set_pitch(power)` 
+> `CoDrone.set_yaw(power)` 
+> `CoDrone.set_throttle(power)` 
 
-When `args` is empty, CoDrone moves for 0.2 second. <br>
-When `args` has one item, CoDrone moves for the time - `args[0]`. <br>
-When `args` has four items, CoDrone moves for 0.2 seconds, with the roll, pitch, yaw, throttle(`args[0]`, `args[1]`, `args[2]`, `args[3]`). <br>
-When `args` has five items, CoDrone moves for the time(`args[0]`), with the roll, pitch, yaw, throttle(`args[1]`, `args[2]`, `args[3]`, `args[4]`). <br>
-> `CoDrone.go(direction, duration=0, power=50)` <br>
+Set roll, pitch, yaw, throttle's power. The value can range from -100(%) to 100(%). 
+> `CoDrone.move(*args)` 
 
-All-in-one version of the five above. <br>
-When setting `direction`, you have to use `Direction` class which we imported in `from CoDrone_mini import Direction`. <br>
-You can go in 6 directions, `Direction.FORWARD`, `Direction.BACKWARD`, `Direction.UP`, `Direction.DOWN`, `Direction.RIGHT`, `Direction.LEFT`. <br>
-When `duration` is 0, it means infinite. If you want to limit the moving time, set `duration` in seconds. <br>
-You can set `power` - ranges from -100(%) to 100(%). <br>
-> `CoDrone.hover(duration=0)` <br>
+When `args` is empty, CoDrone moves for 0.2 second. 
+When `args` has one item, CoDrone moves for the time - `args[0]`. 
+When `args` has four items, CoDrone moves for 0.2 seconds, with the roll, pitch, yaw, throttle(`args[0]`, `args[1]`, `args[2]`, `args[3]`). 
+When `args` has five items, CoDrone moves for the time(`args[0]`), with the roll, pitch, yaw, throttle(`args[1]`, `args[2]`, `args[3]`, `args[4]`). 
+> `CoDrone.go(direction, duration=0, power=50)` 
 
-CoDrone hovers for `duration` seconds. When 0, `duration` means infinite. <br>
-> `CoDrone.turn(direction, duration=None, power=50)` <br>
+All-in-one version of the five above. 
+When setting `direction`, you have to use `Direction` class which we imported in `from CoDrone_mini import Direction`. 
+You can go in 6 directions, `Direction.FORWARD`, `Direction.BACKWARD`, `Direction.UP`, `Direction.DOWN`, `Direction.RIGHT`, `Direction.LEFT`. 
+When `duration` is 0, it means infinite. If you want to limit the moving time, set `duration` in seconds. 
+You can set `power` - ranges from -100(%) to 100(%). 
+> `CoDrone.hover(duration=0)` 
 
-CoDrone turns right and left. You should use `Direction` class to set `direction` var as well. <br>
-When `duration` is None, CoDrone turns for 0.2 seconds. And when you set `duration`, CoDrone turns for `duration` seconds. <br>
-You can set `power` - ranges from -100(%) to 100(%). <br>
-> `CoDrone.set_trim(roll, pitch)` <br>
+CoDrone hovers for `duration` seconds. When 0, `duration` means infinite. 
+> `CoDrone.turn(direction, duration=None, power=50)` 
 
-Set pitch and roll trim. <br>
-> `CoDrone.reset_trim()` <br>
+CoDrone turns right and left. You should use `Direction` class to set `direction` var as well. 
+When `duration` is None, CoDrone turns for 0.2 seconds. And when you set `duration`, CoDrone turns for `duration` seconds. 
+You can set `power` - ranges from -100(%) to 100(%). 
+> `CoDrone.set_trim(roll, pitch)` 
 
-Only reset trim data. <br>
+Set pitch and roll trim. 
+> `CoDrone.reset_trim()` 
 
-## Advanced flying skills <br>
-> `CoDrone.fly_square()` <br>
-> `CoDrone.fly_circle()` <br>
-> `CoDrone.fly_spiral()` <br>
-> `CoDrone.fly_triangle()` <br>
-> `CoDrone.fly_hop()` <br>
-> `CoDrone.fly_sway()` <br>
-> `CoDrone.fly_zigzag()` <br>
+Only reset trim data. 
 
-Automatically demonstrate simple aerobatics. <br>
-> `CoDrone.fly_sequecne(sequence)` <br>
+## Advanced flying skills 
+> `CoDrone.fly_square()` 
+> `CoDrone.fly_circle()` 
+> `CoDrone.fly_spiral()` 
+> `CoDrone.fly_triangle()` 
+> `CoDrone.fly_hop()` 
+> `CoDrone.fly_sway()` 
+> `CoDrone.fly_zigzag()` 
 
-All-in-one function of the seven functions above. <br>
-When setting `sequence`, you have to use `Sequence` class which we imported in `from CoDrone_mini import Sequence`. <br>
-You can do 7 flyings, `Sequences.SQUARE`, `Sequences.CIRCLE`, `Sequences.SPIRAL`, `Sequences.TRIANGLE`, `Sequences.HOP`, `Sequences.SWAY`, `Sequences.ZIGZAG`. <br>
+Automatically demonstrate simple aerobatics. 
+> `CoDrone.fly_sequecne(sequence)` 
 
-## End <br>
+All-in-one function of the seven functions above. 
+When setting `sequence`, you have to use `Sequence` class which we imported in `from CoDrone_mini import Sequence`. 
+You can do 7 flyings, `Sequences.SQUARE`, `Sequences.CIRCLE`, `Sequences.SPIRAL`, `Sequences.TRIANGLE`, `Sequences.HOP`, `Sequences.SWAY`, `Sequences.ZIGZAG`. 
+
+## End 
 Also there're some functions related to buzzers and leds, but I'm too tired to write anything more now.
 Bye!
 

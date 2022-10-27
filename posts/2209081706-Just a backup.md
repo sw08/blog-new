@@ -1,4 +1,4 @@
-# Can Money buy happiness? 
+## Can Money buy happiness? 
 Buying happiness with money.
 We’re often told it’s not possible and people tend to agree with the idea.
 I used to think so, but not anymore. Let me explain why.
