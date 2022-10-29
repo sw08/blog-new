@@ -7,6 +7,8 @@ block append head
             const keyword = decodeURI((new URL(window.location.href)).searchParams.get('keyword'));
             document.getElementById('searchInput').value = ([undefined, 'null']).includes(keyword) ? '' : keyword;
         };
+    meta(property='og:title', content="Search | yswysw's blog")
+    meta(property='og:url', content=`/search?keyword=${keyword}`)
 
 
 block append content

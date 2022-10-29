@@ -28,7 +28,7 @@ module.exports = [
                     } else {
                         backAndForth = files.slice(-5);
                     }
-                    res.render('post', {post: md.render(post), backAndForth: backAndForth});
+                    res.render('post', {post: md.render(post), backAndForth: backAndForth, path: req.params.id});
                 });
             });
         }
@@ -59,6 +59,12 @@ module.exports = [
                 };
                 res.render('search', {posts: posts, query: req.params.keyword});
             });
+        }
+    },
+    {
+        route: '/',
+        router: (req, res) => {
+            res.render('main')
         }
     },
     {
