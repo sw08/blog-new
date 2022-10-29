@@ -12,11 +12,13 @@ block append head
 block append content
     each post in posts
         div.post
-            a(href='/posts/' + post.title) 
+            a(href='/post/' + post.title.slice(0, -3)) 
                 table.post
                     tbody
                         tr
                             td#title
-                                h3 #{post.title.slice(11, -3)}
+                                h3(style='margin-left:0;') #{post.title.slice(11, -3)}
                             td#date #{post.date}
                 p.preview= post.preview
+    - if (posts.length === 0)
+        h2 Post Not Found

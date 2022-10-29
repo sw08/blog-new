@@ -35,8 +35,8 @@ for (var i = 0; i < routers.length; i++) {
 
 app.use('/', router);
 
-app.get((req, res, next) => {
-	res.render('404');
+app.get((err, req, res, next) => {
+	res.render('error');
 });
 
 app.listen(app.get('port'), () => {

@@ -1,12 +1,35 @@
 const fs = require('fs');
 const path = require('path');
+const MarkdownIt = require('markdown-it');
+const plainText = require('markdown-it-plain-text');
+const tool = require('./tool.js')
+
+const md = new MarkdownIt();
+md.use(plainText);
+
 
 module.exports = [
     {
-        route: '/posts/:id',
+        route: '/post/:id',
         router: (req, res) => {
-            fs.readFile(`./posts/${req.params.id}.md`, 'utf8', (err, data) => {
-                res.render('post', {post: data});
+            fs.readdir('./posts/', 'utf8', (err, files) => {
+                fs.readFile(`./posts/${req.params.id}.md`, 'utf8', (err, post) => {
+                    if (err) {
+                        res.render('404');
+                        return;
+                    }
+                    files.sort((a, b) => {return Number(b.slice(0, 10)) - Number(a.slice(0, 10))});
+                    var index = files.indexOf(`${req.params.id}.md`)
+                    var backAndForth = [];
+                    if (2 <= index && index <= files.length - 3) {
+                        backAndForth = files.slice(index - 2, index + 2);
+                    } else if (index < 2) {
+                        backAndForth = files.slice(0, 5);
+                    } else {
+                        backAndForth = files.slice(-5);
+                    }
+                    res.render('post', {post: md.render(post), backAndForth: backAndForth});
+                });
             });
         }
     },
@@ -21,15 +44,27 @@ module.exports = [
                 var page = Number(req.query.page || 1);
                 page = page * 20 > data.length ? 1 : page;
                 var posts = [];
-                data = data.filter(post => post.includes(req.query.keyword));
+                data = data.filter(post => post.toLowerCase().includes(req.query.keyword.toLowerCase()));
                 data.sort((a, b) => {return Number(b.slice(0, 10)) - Number(a.slice(0, 10))});
                 for (var i = 20 * (page - 1); i < Math.min(20 * page, data.length); i++) {
-                    const content = fs.readFileSync(`./posts/${data[i]}`, 'utf8');
+                    var content = fs.readFileSync(`./posts/${data[i]}`, 'utf8');
                     var date = data[i].slice(0, 10);
-                    posts.push({date: `20${date.slice(0, 2)}/${date.slice(2, 4)}/${date.slice(4, 6)} ${date.slice(6, 8)}:${date.slice(8, 10)}`, title: data[i], preview: content.slice(0, content.length >= 305 ? 305 : content.length) + '...'});
+                    md.render(content);
+                    content = md.plainText.replace('\n', ' ');
+                    posts.push({
+                        date: tool.dateFormat(date),
+                        title: data[i],
+                        preview: content.length >= 385 ? content.slice(0, 385) + '...' : content
+                    });
                 };
                 res.render('search', {posts: posts, query: req.params.keyword});
             });
         }
     },
+    {
+        route: '*',
+        router: (req, res) => {
+            res.render('404');
+        }
+    }
 ];

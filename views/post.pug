@@ -4,4 +4,19 @@ block append head
     title Post
 
 block append content
-    p= post
+    .postcontent
+        != post
+    table.backAndForth
+        tr
+            td(style='width: 80%')
+                table#backAndForth
+                    each p in backAndForth
+                        tr
+                            td#title
+                                a(href=`/post/${p.slice(0, -3)}`) #{p.slice(11, -3)}
+                            td#date
+                                a(href=`/post/${p.slice(0, -3)}`) #{p.slice(0, 10)}
+            td(style='width: 20%')
+                a(href='#')
+                    h3 Top
+    div.space(style='height: 100px')

@@ -1,27 +1,3 @@
-@import url("https://p.typekit.net/p.css?s=1&k=yit5ghv&ht=tk&f=17451.18468&a=118436999&app=typekit&e=css");
-
-@font-face {
-    font-family:"source-code-pro-bold";
-    src:url("https://use.typekit.net/af/826d1b/00000000000000007735dc09/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/826d1b/00000000000000007735dc09/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/826d1b/00000000000000007735dc09/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-    font-display:auto;
-    font-style:normal;
-    font-weight:700;
-    font-stretch:normal;
-}
-
-@font-face {
-    font-family:"source-code-pro";
-    src:url("https://use.typekit.net/af/39f83f/00000000000000007735dbfe/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/39f83f/00000000000000007735dbfe/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/39f83f/00000000000000007735dbfe/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");
-    font-display:auto;
-    font-style:normal;
-    font-weight:500;
-    font-stretch:normal;
-}
-
-.tk-source-code-pro {
-    font-family: "source-code-pro", monospace;
-}
-
 html, body {
     height: 100%;
     margin: 0;
@@ -29,10 +5,10 @@ html, body {
 
 body {
     background-color: #00001E;
-    font-family: 'source-code-pro', sans-serif;
+    font-family: Hack, sans-serif;
     text-align: center;
     margin: 0%;
-    font-size: 18pt;
+    font-size: 16pt;
     color: #E1EBF4;
     vertical-align: middle;
     position: relative;
@@ -40,24 +16,34 @@ body {
 
 div#header {
     background-color: #000000;
+    height: 100px;
+}
+
+h1, h2, h3 {
+    margin: 20px;
 }
 
 h1 {
-    font-size: 60pt;
+    font-size: 48pt;
 }
 
 h2 {
-    font-size: 45pt;
+    font-size: 40pt;
 }
 
 h3 {
-    font-size: 30pt;
+    font-size: 32pt;
+}
+
+h4 {
+    font-size: 24pt;
 }
 
 a {
-    text-decoration: none;
     color: #E1EBF4;
+    text-decoration: none;
 }
+
 
 span.logo {
     font-size: 75px;
@@ -81,7 +67,7 @@ input {
     color: #E1EBF4;
     border-color: #E1EBF4;
     border-style:groove;
-    font-family: 'source-code-pro', sans-serif;
+    font-family: Hack, monospace;
 }
 
 input:focus {
@@ -101,16 +87,26 @@ input#searchInput {
 }
 
 p.preview {
-    font-size: 12pt;
+    font-size: 11pt;
     margin-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    text-align: left;
+    word-break: break-all;
+}
+
+div.postcontent {
+    width: 80%;
 }
 
 div.post {
+    width: 60%;
     border-color: #E1EBF4;
     border-style: groove;
-    width: 60%;
+}
+
+div.postcontent, div.post {
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -119,7 +115,6 @@ div.post {
 
 table.post {
     width: 100%;
-    margin: auto;
 }
 
 td > h3 {
@@ -135,4 +130,70 @@ td#title {
 td#date {
     text-align: right;
     padding-right: 30px;
+}
+
+td#title, td#date {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table {
+    margin: auto;
+}
+
+table#backAndForth {
+    width: 100%;
+    border: 0;
+}
+
+p.post {
+    text-align: left;
+}
+
+code {
+    font-family: Hack, monospace;
+    width: 100%;
+}
+
+pre {
+    background-color: #04003C;
+    padding: 10px;
+}
+
+blockquote {
+    background-color: #04003C;
+    margin: 0px;
+}
+
+blockquote > p {
+    padding: 10px;
+}
+
+table.backAndForth {
+    width: 80%;
+    margin-top: 100px;
+    border-spacing: 10px;
+}
+
+table.backAndForth > tbody > tr > td {
+    border: 2.5px solid #E1EBF4;
+}
+
+div#home {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2.5px solid #E1EBF4;
+    width: max-content;
+    height: max-content;
+}
+
+div.content {
+    padding-top: 50px;
+    vertical-align: middle;
+    min-height: calc(100% - 100px);
+}
+
+div.middle {
+    transform: translate(0, calc((100% - 100px) / 2));
 }
