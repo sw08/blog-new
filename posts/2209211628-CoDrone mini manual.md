@@ -6,10 +6,10 @@ First, go to [here](https://pypi.org/project/CoDrone-mini/#files) and download t
 Of course you can just use `pip install CoDrone-mini`, but there's no docs so it's gonna be quite hard to code.
 
 ## Tutorial 
-While I was writing this, I found the official manual - used with the module I found. You can see it in [here](https://learn.robolink.com/course/codrone-mini-with-python/). The choice about whether or not you see is yours :) 
+While I was writing this, I found the official manual - used with the module I found. You can see it in [here](https://learn.robolink.com/course/codrone-mini-with-python/). The choice about whether or not you see is yours :)
 
 ## The basic code to get ready 
-> Import Code 
+You need to import some packages. 
 
 ```
 import CoDrone_mini
