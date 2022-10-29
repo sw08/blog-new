@@ -1,22 +1,22 @@
 html, body {
     height: 100%;
-    margin: 0;
     scroll-behavior: smooth;
+    margin: 0;
 }
 
 body {
     background-color: #00001E;
     font-family: Hack, sans-serif;
     text-align: center;
-    margin: 0%;
     font-size: 16pt;
     color: #E1EBF4;
     vertical-align: middle;
     position: relative;
+    margin: 0;
 }
 
 div#header {
-    background-color: #000000;
+    background-color: #000;
     height: 100px;
 }
 
@@ -45,7 +45,6 @@ a {
     text-decoration: none;
 }
 
-
 span.logo {
     font-size: 75px;
 }
@@ -59,16 +58,16 @@ td {
     padding: 0;
 }
 
-::-webkit-scrollbar{
-    display:none;
+::-webkit-scrollbar {
+    display: none;
 }
 
 input {
     background-color: #00001E;
     color: #E1EBF4;
-    border-color: #E1EBF4;
-    border-style:groove;
     font-family: Hack, monospace;
+    border-color: #E1EBF4;
+    border-style: groove;
 }
 
 input:focus {
@@ -79,7 +78,7 @@ input#searchInput {
     vertical-align: left;
     border-radius: 50px;
     font-size: 20pt;
-    background-image: url('./search.svg');
+    background-image: url(./search.svg);
     background-repeat: no-repeat;
     background-size: 10%;
     background-position: 5px center;
@@ -108,10 +107,7 @@ div.post {
 
 div.postcontent, div.post {
     text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
 
 table.post {
@@ -163,7 +159,7 @@ pre {
 
 blockquote {
     background-color: #04003C;
-    margin: 0px;
+    margin: 0;
 }
 
 blockquote > p {
