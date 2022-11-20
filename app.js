@@ -1,9 +1,5 @@
-const { error } = require('console');
-const { application } = require('express');
 const express = require('express');
-const http = require('http');
 const routers = require('./router.js');
-const fs = require('fs');
 const qs = require('qs');
 
 const app = express();
@@ -24,7 +20,7 @@ app.use((err, req, res, next) => {
 
 app.use(express.static('public'));
 
-var router = express.Router();
+const router = express.Router();
 for (var i = 0; i < routers.length; i++) {
     if (routers[i].type === 'get' || routers[i].type == undefined){
         router.route(routers[i].route).get(routers[i].router);
