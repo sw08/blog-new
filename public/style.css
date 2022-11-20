@@ -41,7 +41,7 @@ h4 {
 }
 
 a {
-    color: #E1EBF4;
+    color: inherit;
     text-decoration: none;
 }
 
@@ -178,19 +178,40 @@ table.backAndForth > tbody > tr > td {
 
 div#home {
     margin-top: 100px;
+}
+
+div.button {
     margin-left: auto;
     margin-right: auto;
     border: 2.5px solid #E1EBF4;
+    padding: 10px;
     width: max-content;
     height: max-content;
 }
 
+.hover {
+    transition: 0.5s;
+}
+
+.hover:hover {
+    background-color: #E1EBF4;
+    color: #04003C;
+}
+
 div.content {
-    padding-top: 50px;
     vertical-align: middle;
-    min-height: calc(100% - 100px);
+    min-height: calc(100vh - 100px);
 }
 
 div.middle {
-    transform: translate(0, calc((100% - 100px) / 2));
+    transform: translate(0, calc((100vh - 100px) / 2));
 }
+
+div.section#first {
+    min-height: calc(100vh - 100px);
+}
+
+div.section {
+    min-height: 100vh;
+}
+
