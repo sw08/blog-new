@@ -7,6 +7,8 @@ const tool = require('./tool.js')
 const md = new MarkdownIt();
 md.use(plainText);
 
+const db = new tool.DB();
+
 
 module.exports = [
     {
@@ -41,22 +43,7 @@ module.exports = [
                     res.redirect('/');
                     return;
                 }
-                var page = Number(req.query.page || 1);
-                page = page * 20 > data.length ? 1 : page;
-                var posts = [];
-                data = data.filter(post => post.toLowerCase().includes(req.query.keyword.toLowerCase()));
-                data.sort((a, b) => {return Number(b.slice(0, 10)) - Number(a.slice(0, 10))});
-                for (var i = 20 * (page - 1); i < Math.min(20 * page, data.length); i++) {
-                    var content = fs.readFileSync(`./posts/${data[i]}`, 'utf8');
-                    var date = data[i].slice(0, 10);
-                    md.render(content);
-                    content = md.plainText.replace('\n', ' ');
-                    posts.push({
-                        date: tool.dateFormat(date),
-                        title: data[i],
-                        preview: content.length >= 385 ? content.slice(0, 385) + '...' : content
-                    });
-                };
+                const posts = db.getPosts(req.query.keyword, Number(req.query.page || 1));
                 res.render('search', {posts: posts, query: req.params.keyword});
             });
         }
@@ -64,7 +51,8 @@ module.exports = [
     {
         route: '/',
         router: (req, res) => {
-            res.render('main')
+            const posts = db.getPosts();
+            res.render('main', {posts: posts});
         }
     },
     {

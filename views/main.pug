@@ -1,0 +1,25 @@
+extends base.pug
+
+block append head
+    title yswysw's Blog
+    meta(property='og:title', content="Home | yswysw's blog")
+
+block append content
+    .section#first
+        h1(style='font-size:100pt') Welcome!
+        h2 yswysw's blog
+        div.button.hover(style='margin-top:150px')
+            h3
+                a(href='#recent') Recent Posts
+    .section#recent
+        h2 Recent Posts
+        each post in posts
+            div.post
+                a(href='/post/' + post.title.slice(0, -3)) 
+                    table.post
+                        tbody
+                            tr
+                                td#title
+                                    h3(style='margin-left:0;') #{post.title.slice(11, -3)}
+                                td#date #{post.date}
+                    p.preview= post.preview
