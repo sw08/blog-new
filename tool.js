@@ -10,13 +10,13 @@ class DB {
     constructor () {
         this.return = undefined;
     }
-    getPosts(keyword='', page=1) {
+    getPosts(keyword='', page=1, per=20) {
         var data = fs.readdirSync('./posts/', 'utf8')    
-        page = page * 20 > data.length ? 1 : page;
+        page = page * per > data.length ? 1 : page;
         var posts = [];
         data = keyword !== '' ? data.filter(post => post.toLowerCase().includes(keyword.toLowerCase())) : data;
         data.sort((a, b) => {return Number(b.slice(0, 10)) - Number(a.slice(0, 10))});
-        for (var i = 20 * (page - 1); i < Math.min(20 * page, data.length); i++) {
+        for (var i = per * (page - 1); i < Math.min(per * page, data.length); i++) {
             var content = fs.readFileSync(`./posts/${data[i]}`, 'utf8');
             var date = data[i].slice(0, 10);
             md.render(content);
