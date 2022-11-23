@@ -24,7 +24,7 @@ class DB {
             posts.push({
                 date: module.exports.dateFormat(date),
                 title: data[i],
-                preview: content.length >= 385 ? content.slice(0, 385) + '...' : content
+                preview: content 
             });
         };
         return posts;

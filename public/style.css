@@ -93,6 +93,13 @@ p.preview {
     padding-right: 30px;
     text-align: left;
     word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    line-height: 1.1em;
+    height: 4.4em;
 }
 
 div.postcontent {
