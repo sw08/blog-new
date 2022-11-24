@@ -30,7 +30,7 @@ module.exports = [
                     } else {
                         backAndForth = files.slice(-5);
                     }
-                    res.render('post', {post: md.render(post), backAndForth: backAndForth, path: req.params.id});
+                    res.render('post', {post: md.render(post), backAndForth: backAndForth});
                 });
             });
         }
