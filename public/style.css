@@ -179,6 +179,15 @@ table.backAndForth {
     border-spacing: 10px;
 }
 
+table.posts {
+    width: 80%;
+    border-spacing: 10px;
+}
+
+table.posts > tbody > tr {
+    border: 2.5px solid #E1EBF4;
+}
+
 table.backAndForth > tbody > tr > td {
     border: 2.5px solid #E1EBF4;
 }
