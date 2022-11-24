@@ -43,7 +43,7 @@ module.exports = [
                     res.redirect('/');
                     return;
                 }
-                const posts = db.getPosts(req.query.keyword, Number(req.query.page || 1));
+                const posts = db.getPosts(req.query.keyword, Number(req.query.page || 1), Number(req.query.per || 20));
                 res.render('search', {posts: posts, query: req.params.keyword});
             });
         }
