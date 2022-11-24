@@ -211,9 +211,6 @@ div.content {
     min-height: calc(100vh - 100px);
 }
 
-div.middle {
-    transform: translate(0, calc((100vh - 100px) / 2));
-}
 
 div.section#first {
     min-height: calc(100vh - 100px);
