@@ -51,8 +51,7 @@ module.exports = [
     {
         route: '/',
         router: (req, res) => {
-            const posts = db.getPosts(keyword='', page=1, per=4);
-            res.render('main', {posts: posts});
+            res.render('main', {posts: db.getPosts(keyword='', page=1, per=2), notices: db.getNotices()});
         }
     },
     {

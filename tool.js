@@ -9,6 +9,7 @@ md.use(plainText);
 class DB {
     constructor () {
         this.return = undefined;
+        this.notices = JSON.parse(fs.readFileSync('./notice.json'));
     }
     getPosts(keyword='', page=1, per=20) {
         var data = fs.readdirSync('./posts/', 'utf8')    
@@ -25,6 +26,18 @@ class DB {
                 date: module.exports.dateFormat(date),
                 title: data[i],
                 preview: content 
+            });
+        };
+        return posts;
+    }
+    getNotices() {
+        var posts = [];
+        for (const notice of this.notices) {
+            var date = notice.slice(0, 10);
+            posts.push({
+                date: module.exports.dateFormat(date),
+                title: data[i],
+                preview: ''
             });
         };
         return posts;

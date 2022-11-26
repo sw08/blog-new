@@ -242,6 +242,7 @@ img.arrow {
 img.arrow:hover {
     height: 55px;
     width: 110px;
+    cursor: pointer;
 }
 
 
@@ -254,11 +255,12 @@ div.middle {
     transform: translate(0, calc((100vh - 100px) / 2));
 }
 
-div.section#first {
+div.section#1 {
     min-height: calc(100vh - 100px);
 }
 
 div.section {
     min-height: 100vh;
+    max-height: 100vh;
 }
 

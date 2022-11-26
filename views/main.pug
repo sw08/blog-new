@@ -1,28 +1,39 @@
 extends base.pug
 
+mixin posts(postlist)
+    each post in postlist
+        div.post
+            a(href='/post/' + post.title.slice(0, -3)) 
+                table.post
+                    tbody
+                        tr
+                            td#title
+                                h3(style='margin-left:0;') #{post.title.slice(11, -3)}
+                            td#date #{post.date}
+                p.preview= post.preview
+    if(postlist.length == 0)
+        br
+        br
+        br
+        h3 Not exists
+
 block append head
     title yswysw's Blog
     meta(property='og:title', content="Home | yswysw's blog")
+    script(type="text/javascript" src='/section.js')
 
 block append content
-    .section#first
+    .section
         h1(style='font-size:100pt') Welcome!
         h2 yswysw's blog
-        a(href='#recent')
-            img.hover.arrow(src='/bottom.svg' style='margin-top:150px;')
-    .section#recent
-        h2 Recent Posts
+        img.hover.arrow(src='/bottom.svg' style='margin-top:150px;' onclick='next()')
+    .section#2
+        h2 Notice
         br
-        each post in posts
-            div.post
-                a(href='/post/' + post.title.slice(0, -3)) 
-                    table.post
-                        tbody
-                            tr
-                                td#title
-                                    h3(style='margin-left:0;') #{post.title.slice(11, -3)}
-                                td#date #{post.date}
-                    p.preview= post.preview            
+        +posts(notices)
+    .section#3
+        h2 Recent Posts
+        +posts(posts)
         a(href='/posts')
             div.button.hover(style='margin-top:100px')
                 h4 View More
