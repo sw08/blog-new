@@ -121,8 +121,7 @@ div.posttitle {
 
 div.postcontent, div.post {
     text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
 }
 
 div.postcontent {
@@ -230,7 +229,7 @@ div.button {
     transition: 0.5s;
 }
 
-div.hover:hover {
+div.hover:hover, td.hover:hover {
     background-color: #E1EBF4;
     color: #04003C;
 }
