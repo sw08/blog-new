@@ -43,7 +43,7 @@ module.exports = [
                     res.redirect('/');
                     return;
                 }
-                const posts = db.getPosts(req.query.keyword, Number(req.query.page || 1));
+                const posts = db.getPosts(keyword=req.query.keyword, page=Number(req.query.page || 1), per=20, preview=true);
                 res.render('search', {posts: posts, query: req.params.keyword});
             });
         }
@@ -51,7 +51,7 @@ module.exports = [
     {
         route: '/',
         router: (req, res) => {
-            res.render('main', {posts: db.getPosts(keyword='', page=1, per=2), notices: db.getNotices()});
+            res.render('main', {posts: db.getPosts(keyword='', page=1, per=2, preview=true), notices: db.getNotices()});
         }
     },
     {
