@@ -12,6 +12,12 @@ const db = new tool.DB();
 
 module.exports = [
     {
+        route: '/posts',
+        router: (req, res) => {
+            res.render('posts', {posts: db.getPosts(keyword='', page=1, per=20)});
+        }
+    },
+    {
         route: '/post/:id',
         router: (req, res) => {
             fs.readdir('./posts/', 'utf8', (err, files) => {
@@ -30,7 +36,7 @@ module.exports = [
                     } else {
                         backAndForth = files.slice(-5);
                     }
-                    res.render('post', {post: md.render(post), backAndForth: backAndForth, path: req.params.id});
+                    res.render('post', {post: md.render(post), backAndForth: backAndForth});
                 });
             });
         }

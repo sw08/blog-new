@@ -1,0 +1,16 @@
+extends base.pug
+
+block append head
+    title Posts
+    meta(property='og:title', content="Posts | yswysw's blog")
+
+block append content
+    h1 Posts
+    br
+    table.posts
+        each post in posts
+            tr
+                a(href='/post/' + post.title.slice(0, -3)) 
+                    td#title
+                        h3(style='margin-left:0;') #{post.title.slice(11, -3)}
+                    td#date #{post.date}
