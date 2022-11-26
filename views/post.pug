@@ -3,9 +3,10 @@ extends base.pug
 block append head
     title Post
     meta(property='og:title', content="Post | yswysw's blog")
-    meta(property='og:url', content=`/post/${path}`)
 
 block append content
+    .posttitle
+        h1(style='font-size:55pt') #{title.slice(11)}
     .postcontent
         != post
     table.backAndForth

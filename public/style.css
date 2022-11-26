@@ -75,19 +75,27 @@ input:focus {
 }
 
 input#searchInput {
-    vertical-align: left;
-    border-radius: 50px;
+    margin-right: 100px;
+    vertical-align: middle;
+    border-radius: 10px;
     font-size: 20pt;
     background-image: url(./search.svg);
     background-repeat: no-repeat;
-    background-size: 10%;
     background-position: 5px center;
     box-sizing: border-box;
     padding-left: 44px;
+    padding-right: 0;
+    width: 24px;
+    transition: 1s;
+    height: 60px;
+}
+
+input#searchInput:hover {
+    width: calc(100% - 100px);
 }
 
 p.preview {
-    font-size: 11pt;
+    font-size: inherit;
     margin-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
@@ -96,10 +104,25 @@ p.preview {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     line-height: 1.1em;
-    height: 4.4em;
+    height: 3.3em;
+}
+
+div.posttitle {
+    min-height: calc(150px + 55pt);
+    background-color: #00002E;
+    width: 100%;
+    padding-top: 0.5em;
+    padding-left: 10%;
+    text-align: left;
+}
+
+div.postcontent, div.post {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.postcontent {
@@ -107,15 +130,21 @@ div.postcontent {
 }
 
 div.post {
+    width: 80%;
     width: 60%;
+    height: 190px;
     border-color: #E1EBF4;
     border-style: groove;
+    transition: 250ms;
+    font-size: 11pt;
 }
 
-div.postcontent, div.post {
-    text-align: left;
-    margin: 20px auto;
+div.post:hover {
+    width: 62%;
+    height: 200px;
+    font-size: 12pt;
 }
+
 
 table.post {
     width: 100%;
@@ -201,10 +230,21 @@ div.button {
     transition: 0.5s;
 }
 
-.hover:hover {
+div.hover:hover {
     background-color: #E1EBF4;
     color: #04003C;
 }
+
+img.arrow {
+    height: 50px;
+    width: 100px;
+}
+
+img.arrow:hover {
+    height: 55px;
+    width: 110px;
+}
+
 
 div.content {
     vertical-align: middle;
