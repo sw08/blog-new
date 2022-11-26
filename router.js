@@ -64,7 +64,7 @@ module.exports = [
     {
         route: '/restart',
         router: (req, res) => {
-            const auth = JSON.parse(fs.readFileSync('auth.json'));
+            const auth = JSON.parse(fs.readFileSync('./auth.json'));
             if (auth.user === req.query.user && auth.password === req.query.password) {
                 shell.exec('git pull');
                 setTimeout(() => {
