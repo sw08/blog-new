@@ -12,6 +12,8 @@ block append head
 
 
 block append content
+    h2 Search result of "#{keyword}":
+    br
     each post in posts
         div.post
             a(href='/post/' + post.title.slice(0, -3)) 
@@ -23,4 +25,4 @@ block append content
                             td#date #{post.date}
                 p.preview= post.preview
     - if (posts.length === 0)
-        h2 Post Not Found
+        h2 Not Found
