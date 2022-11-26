@@ -1,5 +1,5 @@
 ## Why I wrote this? 
-I've just borrowed CoDrone mini from programming club in my school. Honestly, I'd forgotten this until today - but tomorrow(Sep 22th) I must return it. I remembered the teacher asking me to record a video and test it. But maybe the manual - included with the drone box - was too old or like that, anyway I found the module - used in the manual book - was not on pypi. I think the uploader had deleted it - as I found another module. In short, I'm writing this for someone experiencing the same as me. 
+I've borrowed CoDrone mini from programming club in my school a little months ago. Honestly, I'd forgotten this until today - but tomorrow(Sep 22th) I must return it. I remembered the teacher asking me to record a video and test it. But maybe the manual - included with the drone box - was too old or like that, anyway I found the module - used in the manual book - was not on pypi. I think the uploader had deleted it - as I found another module. In short, I'm writing this for someone experiencing the same as me. 
 
 ## How to get the library 
 First, go to [here](https://pypi.org/project/CoDrone-mini/#files) and download the whl file. And unzip it, so that you can see the whole code.
