@@ -10,7 +10,8 @@ block append content
     table.posts
         each post in posts
             tr
-                a(href='/post/' + post.title.slice(0, -3)) 
-                    td#title
+                td#title
+                    a(href='/post/' + post.title.slice(0, -3)) 
                         h3(style='margin-left:0;') #{post.title.slice(11, -3)}
-                    td#date #{post.date}
+                td#date
+                    a(href='/post/' + post.title.slice(0, -3)) #{post.date}
