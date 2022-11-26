@@ -37,7 +37,7 @@ module.exports = [
                     } else {
                         backAndForth = files.slice(-5);
                     }
-                    res.render('post', {post: md.render(post), backAndForth: backAndForth});
+                    res.render('post', {post: md.render(post), backAndForth: backAndForth, title:req.params.id});
                 });
             });
         }
