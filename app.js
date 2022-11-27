@@ -1,6 +1,8 @@
 const express = require('express');
 const routers = require('./router.js');
 const qs = require('qs');
+const https = require('https');
+const fs = require('fs');
 
 const app = express();
 
@@ -35,6 +37,5 @@ app.get((err, req, res, next) => {
 	res.render('error');
 });
 
-app.listen(app.get('port'), () => {
-    console.log(`Port ${app.get('port')} opened`);
-});
+https.createServer({key: fs.readFileSync('./private-key.pem'), cert: fs.readFileSync('./certificate.pem')}, app).listen(app.get('port'))
+console.log(`Port ${app.get('port')} opened`);
