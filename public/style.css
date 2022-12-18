@@ -113,9 +113,10 @@ p.preview {
 div.posttitle {
     min-height: calc(150px + 55pt);
     background-color: #00002E;
-    width: 100%;
+    width: 80%;
     padding-top: 0.5em;
     padding-left: 10%;
+    padding-right: 10%;
     text-align: left;
 }
 
